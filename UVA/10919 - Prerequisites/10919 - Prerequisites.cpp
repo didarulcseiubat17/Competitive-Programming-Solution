@@ -1,36 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
+int a[105];
 int main(){
-    freopen("input.txt","r",stdin);
-    freopen("out.txt","w",stdout);
-int k,m,c,r,k1=0;
-int ch[101];
-int redeg[101];
-
-while(cin>>k>>m){
-        if(k==0) break;
-    for(int i=1;i<=k;i++){
-        cin>>ch[i];
+    //freopen("input.txt","r",stdin);
+   // freopen("out.txt","w",stdout);
+int n,m,tot,req,aux,cn;
+while(1){
+    cin>>n;
+    if(n==0) return 0;
+    cin>>m;
+    cn=0;
+    int op=0;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
     }
-    bool flag=false;
     while(m--){
-        cin>>c>>r;
-        int must=0;
-        for(int i=1;i<=c;i++){
-            cin>>redeg[i];
-            for(int j=1;i<=k;j++){
-                if(redeg[i]==ch[j]) must++;k1++;
-
+        cn=0;
+        cin>>tot>>req;
+        for(int j=0;j<tot;j++){
+            cin>>aux;
+            for(int h=0;h<n;h++){
+                if(aux==a[h])
+                    cn++;
             }
         }
-        if(must==r) flag=true;
+        if(cn<req) op=1;
     }
-    if(flag==true&&k1==k) cout<<"yes"<<endl;
+    if(op==0)
+        cout<<"yes"<<endl;
     else
         cout<<"no"<<endl;
 }
-
-
-return
-0;
+return 0;
 }
